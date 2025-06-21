@@ -1,0 +1,8 @@
+<h2>Painel do usuário</h2>
+<p>Bem-vindo, {{ request.user.username }}!</p>
+<p>Seu nome: {{ request.user.first_name }} {{ request.user.last_name }}</p>
+<p>Email: {{ request.user.email }}</p>
+<p>Bio: {{ request.user.bio }}</p>
+<p>Data de Nascimento: {{ request.user.nascimento }}</p>
+<img src="{{ user.perfil.foto.url }}" class="img-thumbnail" width="150">
+<a href="{% url 'logout' %}">Sair</a>

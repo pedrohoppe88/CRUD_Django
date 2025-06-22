@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from .models import Perfil
+from django.contrib.auth.decorators import login_required
 
 def cadastro_view(request):
     if request.method == 'POST':
@@ -52,3 +53,8 @@ def logout_view(request):
     from django.contrib.auth import logout
     logout(request)
     return redirect('login')
+
+
+@login_required
+def painel_view(request):
+    return render(request, 'usuarios/painel.html')
